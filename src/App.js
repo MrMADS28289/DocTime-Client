@@ -1,8 +1,7 @@
 import './App.css';
 import Navbar from './Pages/Shared/Navbar';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './Pages/Home/Home';
-import About from './Pages/About/About';
 import Login from './Pages/Login/Login';
 import Appointment from './Pages/Appointment/Appointment';
 import SignUp from './Pages/Login/SignUp';
@@ -18,6 +17,7 @@ import AddDoctor from './Pages/Dashboard/AddDoctor';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import ManageDoctors from './Pages/Dashboard/ManageDoctors';
 import Payment from './Pages/Dashboard/Payment';
+import NotFound from './Pages/Shared/NotFound';
 
 function App() {
   return (
@@ -25,7 +25,6 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
         <Route path="appointment" element={
           <RequireAuth>
             <Appointment />
@@ -42,6 +41,7 @@ function App() {
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <ToastContainer />
     </div>
